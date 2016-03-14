@@ -1,5 +1,3 @@
-package ListLab;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -16,8 +14,8 @@ public class Driver {
 			"Gold", "Foley", "Freeman", "Willis", "Grant"};
 
 	public static void main(String[] args) {
-		List<Student> studentArrayList = new ArrayList<>();
-		MyLinkedList<Student> studentLinkedList = new MyLinkedList<>();
+		List<Student> studentArrayList = new ArrayList<Student>();
+		MyLinkedList<Student> studentLinkedList = new MyLinkedList<Student>();
 		
 		generateStudents(20, studentArrayList);
 		generateStudents(20, studentLinkedList);
@@ -26,10 +24,21 @@ public class Driver {
 		//operation. Complete the action
 		
 		//Delete the first, if any, Student with the last name of "Smith"
-		
+		for (int i = 0; i < studentLinkedList.getSize(); i++) {
+			Student currentStudent = studentLinkedList.get(i);
+			if (currentStudent.getLastName().equals("Smith")) {
+				studentLinkedList.remove(i);
+				break;
+			}
+		}
+
 		//Change the name of the 3rd entry to "Joe Montana"
+		Student thirdStudent = studentArrayList.get(2);
+		thirdStudent.setFirstName("Joe");
+		thirdStudent.setLastName("Montana");
 		
 		//Remove the 10th element
+		studentLinkedList.remove(9);
 	}
 	
 	//To generate the ArrayList
